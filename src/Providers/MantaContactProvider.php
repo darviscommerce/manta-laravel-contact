@@ -3,13 +3,8 @@
 namespace Manta\LaravelContact\Providers;
 
 use Manta\LaravelContact\Console\InstallMantaLaravelContact;
-use Manta\LaravelContact\Http\Livewire\Contact\ContactCreate;
-use Manta\LaravelContact\Http\Livewire\Contact\ContactList;
-use Manta\LaravelContact\Http\Livewire\Contact\ContactUpdate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
-use Livewire\Livewire;
-use Manta\LaravelContact\Http\Livewire\Widgets\WidgetsContact;
 
 class MantaContactProvider extends ServiceProvider
 {
@@ -27,11 +22,11 @@ class MantaContactProvider extends ServiceProvider
         $this->registerRoutes();
 
         // * Laravel components
-        Livewire::component('contact-create', ContactCreate::class);
-        Livewire::component('contact-update', ContactUpdate::class);
-        Livewire::component('contact-list', ContactList::class);
+        // Livewire::component('contact-create', ContactCreate::class);
+        // Livewire::component('contact-update', ContactUpdate::class);
+        // Livewire::component('contact-list', ContactList::class);
 
-        Livewire::component('widgets-contact', WidgetsContact::class);
+        // Livewire::component('widgets-contact', WidgetsContact::class);
 
         // * Language files
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'manta-laravel-contact');
@@ -57,7 +52,11 @@ class MantaContactProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             // Publish view components
             $this->publishes([
-                // __DIR__.'/../lang' => $this->app->langPath('lang'),
+                __DIR__ . '/../Mail/' => app_path('Mail'),
+                __DIR__ . '/../Http/' => app_path('Http'),
+                __DIR__ . '/../resources/views/' => resource_path('views'),
+                // __DIR__ . '/../View/Components/' => app_path('View/Components'),
+                // __DIR__ . '/../public/' => public_path(''),
                 // __DIR__ . '/../public/libs/' => public_path('libs'),
                 // __DIR__ . '/../public/images/' => public_path('images'),
                 // __DIR__ . '/../View/Components/' => app_path('View/Components'),
@@ -67,7 +66,7 @@ class MantaContactProvider extends ServiceProvider
                 // __DIR__ . '/../resources/views/layouts/' => resource_path('views/layouts'),
                 // __DIR__ . '/../resources/views/components/' => resource_path('views/components'),
                 // __DIR__ . '/../database/seeders/' => resource_path('/../database/seeders'),
-            ], 'view-components');
+            ], 'manta-contact-components');
 
 
             $this->publishes([
