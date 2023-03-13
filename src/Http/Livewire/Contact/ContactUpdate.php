@@ -1,6 +1,6 @@
 <?php
 
-namespace Manta\LaravelContact\Http\Livewire\Contact;
+namespace App\Http\Livewire\Contact;
 
 use Manta\LaravelContact\Models\MantaContact;
 use Illuminate\Http\Request;
@@ -48,7 +48,7 @@ class ContactUpdate extends Component
 
     public function render()
     {
-        return view('manta-laravel-contact::livewire.contact.contact-update')->layout('manta-laravel-cms::layouts.manta-bootstrap');
+        return view('livewire.contact.contact-update')->layout('layouts.manta-bootstrap');
     }
 
     public function store($input)

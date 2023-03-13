@@ -2,30 +2,30 @@
 
 namespace App\Http\Livewire\Widgets;
 
-use App\Mail\MailContact;
-use App\Models\MantaContact;
+use Manta\LaravelContact\Models\MantaContact;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
+use App\Mail\MailContact;
 
 class WidgetsContact extends Component
 {
     public ?MantaContact $item = null;
 
-    public ?string $host;
-    public ?string $locale;
-    public ?string $sex;
-    public ?string $firstname;
-    public ?string $lastname;
-    public ?string $email;
-    public ?string $phone;
-    public ?string $address;
-    public ?string $zipcode;
-    public ?string $city;
-    public ?string $country;
-    public ?string $birthdate;
-    public ?string $newsletters;
-    public ?string $comments;
-    public ?string $privacy;
+    public ?string $host = null;
+    public ?string $locale = null;
+    public ?string $sex = null;
+    public ?string $firstname = null;
+    public ?string $lastname = null;
+    public ?string $email = null;
+    public ?string $phone = null;
+    public ?string $address = null;
+    public ?string $zipcode = null;
+    public ?string $city = null;
+    public ?string $country = null;
+    public ?string $birthdate = null;
+    public ?string $newsletters = null;
+    public ?string $comments = null;
+    public ?string $privacy = null;
 
     public function render()
     {

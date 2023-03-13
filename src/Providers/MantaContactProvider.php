@@ -9,7 +9,7 @@ use Manta\LaravelContact\Http\Livewire\Contact\ContactUpdate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
-use Manta\LaravelContact\Http\Livewire\Contact\ContactUploads;
+use Manta\LaravelContact\Http\Livewire\Widgets\WidgetsContact;
 
 class MantaContactProvider extends ServiceProvider
 {
@@ -30,6 +30,11 @@ class MantaContactProvider extends ServiceProvider
         Livewire::component('contact-create', ContactCreate::class);
         Livewire::component('contact-update', ContactUpdate::class);
         Livewire::component('contact-list', ContactList::class);
+
+        Livewire::component('widgets-contact', WidgetsContact::class);
+
+        // * Language files
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'manta-laravel-contact');
 
         // * Views
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'manta-laravel-contact');
@@ -52,6 +57,7 @@ class MantaContactProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             // Publish view components
             $this->publishes([
+                // __DIR__.'/../lang' => $this->app->langPath('lang'),
                 // __DIR__ . '/../public/libs/' => public_path('libs'),
                 // __DIR__ . '/../public/images/' => public_path('images'),
                 // __DIR__ . '/../View/Components/' => app_path('View/Components'),

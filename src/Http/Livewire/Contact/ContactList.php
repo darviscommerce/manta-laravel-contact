@@ -1,9 +1,9 @@
 <?php
 
-namespace Manta\LaravelContact\Http\Livewire\Contact;
+namespace App\Http\Livewire\Contact;
 
 use Manta\LaravelContact\Models\MantaContact;
-use Manta\LaravelCms\Traits\WithSorting;
+use App\Traits\WithSorting;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -42,7 +42,7 @@ class ContactList extends Component
         // ->where('name', 'like', '%'.$this->search.'%')->orWhere('email', 'like', '%'.$this->search.'%');
         }
         $items = $obj->paginate(20);
-        return view('manta-laravel-contact::livewire.contact.contact-list', ['items' => $items])->layout('manta-laravel-cms::layouts.manta-bootstrap');
+        return view('livewire.contact.contact-list', ['items' => $items])->layout('layouts.manta-bootstrap');
     }
 
     public function loadTrash()
