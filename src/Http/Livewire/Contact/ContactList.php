@@ -23,21 +23,24 @@ class ContactList extends Component
 
     public function mount()
     {
-        $this->sortBy = 'title';
-        $this->sortDirection = 'ASC';
+        $this->sortBy = 'created_at';
+        $this->sortDirection = 'DESC';
     }
 
     public function render()
     {
-        $obj = MantaContact::where('locale', config('manta-cms.locale'))->orderBy($this->sortBy, $this->sortDirection);
+        $obj = MantaContact::orderBy($this->sortBy, $this->sortDirection);
         if($this->show == 'trashed'){
             $obj->onlyTrashed();
         }
         if($this->search){
             $keyword = $this->search;
             $obj->where(function ($query) use($keyword) {
-                $query->where('title', 'like', '%' . $keyword . '%')
-                   ->orWhere('content', 'like', '%' . $keyword . '%');
+                $query->where('firstname', 'like', '%' . $keyword . '%')
+                   ->orWhere('lastname', 'like', '%' . $keyword . '%')
+                   ->orWhere('phone', 'like', '%' . $keyword . '%')
+                   ->orWhere('email', 'like', '%' . $keyword . '%')
+                   ->orWhere('comments', 'like', '%' . $keyword . '%');
               });
         // ->where('name', 'like', '%'.$this->search.'%')->orWhere('email', 'like', '%'.$this->search.'%');
         }

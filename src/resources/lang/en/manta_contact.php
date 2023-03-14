@@ -23,4 +23,5 @@ return [
     'bikerental_julianadorp' => 'Fietsverhuur Julianadorp',
     'dear' => 'Dear',
     'contact by' => 'Contact by',
+    'send' => 'Send',
 ];

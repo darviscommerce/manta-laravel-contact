@@ -39,7 +39,8 @@
                 @error('privacy') <div class="error">{{ $message }}</div> @enderror
             </span>
         </label>
-        <input type="submit" value="{{ __('manta-laravel-contact::manta_contact.send') }}" class="button green submit w-button">
+        <input type="submit" value="{{ __('manta-laravel-contact::manta_contact.send') }}" class="button green submit w-button" wire:loading.class="btn-secondary"
+        wire:loading.attr="disabled">
     </form>
     @endif
     {{-- <div class="w-form-fail">

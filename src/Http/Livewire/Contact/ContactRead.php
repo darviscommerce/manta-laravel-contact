@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Contact;
 
-use Manta\LaravelContact\Models\MantaContact;
 use Illuminate\Http\Request;
 use Livewire\Component;
+use Manta\LaravelContact\Models\MantaContact;
 
-class ContactUpdate extends Component
+class ContactRead extends Component
 {
     public MantaContact $item;
 
@@ -54,46 +54,6 @@ class ContactUpdate extends Component
 
     public function render()
     {
-        return view('livewire.contact.contact-update')->layout('layouts.manta-bootstrap');
-    }
-
-    public function store($input)
-    {
-        $this->validate(
-            [
-                'firstname' => 'required',
-                'email' => 'required|email|min:1',
-                'comments' => 'required',
-                'privacy' => 'required',
-            ],
-            [
-                'firstname.required' => 'Voornaam is verplicht',
-                'email.required' => 'Email is verplicht',
-                'email.email' => 'Email is niet correct',
-                'comments.required' => 'Opmerkingen zijn verplicht',
-                'privacy.required' => 'U moet akkoord gaan met de privacy verklaring',
-            ]
-        );
-
-        $items = [
-            'host' => request()->getHost(),
-            'locale' => app()->getLocale(),
-            'changed_by' => auth()->user()->name,
-            'sex' => $this->sex,
-            'firstname' => $this->firstname,
-            'lastname' => $this->lastname,
-            'email' => $this->email,
-            'phone' => $this->phone,
-            'address' => $this->address,
-            'zipcode' => $this->zipcode,
-            'city' => $this->city,
-            'country' => $this->country,
-            'birthdate' => $this->birthdate,
-            'newsletters' => $this->newsletters,
-            'comments' => $this->comments,
-        ];
-        $this->item = MantaContact::where('id', $this->item->id)->update($items);
-
-        toastr()->addInfo('Item opgeslagen');
+        return view('livewire.contact.contact-read')->layout('layouts.manta-bootstrap');
     }
 }

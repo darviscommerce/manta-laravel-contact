@@ -52,7 +52,7 @@ class WidgetsContact extends Component
 
         $items = [
             'host' => request()->getHost(),
-            'locale' => $this->locale,
+            'locale' => app()->getLocale(),
             'sex' => $this->sex,
             'firstname' => $this->firstname,
             'lastname' => $this->lastname,
