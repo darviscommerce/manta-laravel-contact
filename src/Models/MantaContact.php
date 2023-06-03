@@ -21,11 +21,15 @@ class MantaContact extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'added_by',
-        'changed_by',
+        'created_by',
+        'updated_by',
+        'deleted_by',
         'company_id',
         'host',
+        'pid',
         'locale',
+        'company',
+        'title',
         'sex',
         'firstname',
         'lastname',
@@ -37,6 +41,8 @@ class MantaContact extends Model
         'country',
         'birthdate',
         'newsletters',
+        'subject',
         'comments',
+        'internal_contact',
     ];
 }

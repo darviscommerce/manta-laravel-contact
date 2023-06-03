@@ -4,6 +4,7 @@
     "homepage": "http://darvis.nl",
     "keywords": ["darvis", "laravel", "livewire", "contact"],
     "license": "MIT",
+    "version": "0.0.7",
     "authors": [
         {
             "name": "Arvid de Jong",

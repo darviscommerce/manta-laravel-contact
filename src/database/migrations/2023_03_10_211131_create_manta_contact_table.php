@@ -15,11 +15,15 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes();
-            $table->string('added_by')->nullable();
-            $table->string('changed_by')->nullable();
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->string('deleted_by')->nullable();
             $table->integer('company_id')->nullable();
             $table->string('host')->nullable();
             $table->string('locale')->nullable();
+            $table->integer('pid')->nullable();
+            $table->string('company')->nullable();
+            $table->string('title')->nullable();
             $table->string('sex')->nullable();
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
@@ -31,7 +35,9 @@ return new class extends Migration
             $table->string('country')->nullable();
             $table->date('birthdate')->nullable();
             $table->boolean('newsletters')->nullable();
+            $table->string('subject')->nullable();
             $table->string('comments')->nullable();
+            $table->string('internal_contact')->nullable();
         });
     }
 
@@ -40,6 +46,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('manta_contact');
+        Schema::dropIfExists('manta_contacts');
     }
 };
