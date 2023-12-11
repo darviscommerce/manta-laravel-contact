@@ -44,5 +44,6 @@ class MantaContact extends Model
         'subject',
         'comments',
         'internal_contact',
+        'ip',
     ];
 }

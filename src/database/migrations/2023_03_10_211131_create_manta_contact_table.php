@@ -38,6 +38,7 @@ return new class extends Migration
             $table->string('subject')->nullable();
             $table->string('comments')->nullable();
             $table->string('internal_contact')->nullable();
+            $table->string('ip')->nullable();
         });
     }
 

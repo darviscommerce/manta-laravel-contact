@@ -17,7 +17,7 @@ class ContactCreate extends Component
     public ?string $company_id = null;
     public ?string $host = null;
     public ?string $pid = null;
-    public ?string $locale = 'nl';
+    public ?string $locale = 'NL';
     public ?string $company = null;
     public ?string $title = null;
     public ?string $sex = null;
@@ -51,7 +51,7 @@ class ContactCreate extends Component
             $this->address = fake('nl_NL')->streetAddress();
             $this->zipcode = fake('nl_NL')->postcode();
             $this->city = fake('nl_NL')->city();
-            $this->country = strtolower(fake('nl_NL')->countryCode());
+            $this->country = fake('nl_NL')->countryCode();
             $this->birthdate = fake('nl_NL')->date('Y-m-d', '-15 years');
             $this->subject = fake('nl_NL')->sentence('5');
             $this->comments = fake('nl_NL')->paragraph('3');
@@ -98,6 +98,7 @@ class ContactCreate extends Component
             'subject' => $this->subject,
             'comments' => $this->comments,
             'internal_contact' => $this->internal_contact,
+            'ip' => request()->ip(),
         ];
         MantaContact::create($item);
 
